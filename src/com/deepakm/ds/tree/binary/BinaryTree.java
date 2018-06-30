@@ -72,4 +72,13 @@ public class BinaryTree {
         if (data == node.data) return true;
         return data < node.data ? containsNodeRecursive(node.left, data) : containsNodeRecursive(node.right, data);
     }
+
+    public int size(){
+        return size(root);
+    }
+
+    private int size(TreeNode node) {
+        if (node == null ) return 0;
+        return 1 + size(node.left) + size(node.right);
+    }
 }

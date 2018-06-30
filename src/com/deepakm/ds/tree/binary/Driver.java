@@ -17,7 +17,9 @@ public class Driver {
         System.out.println("postorder");
         tree.postOrder();
 
-        System.out.println(tree.containsNode(200));
-        System.out.println(tree.containsNode(12));
+        System.out.println("contains 200 ? : " + tree.containsNode(200));
+        System.out.println("contains 12? : " + tree.containsNode(12));
+
+        System.out.println("size : " + tree.size());
     }
 }
