@@ -2,8 +2,11 @@ package com.deepakm.ds.tree.binary;
 
 public class Driver {
     public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree();
-        tree.add(100);
+        BinaryTree tree = new BinaryTree(100);
+        tree.getRoot().left = new TreeNode(10);
+        tree.getRoot().right = new TreeNode(110);
+
+        /*tree.add(100);
         tree.add(10);
         tree.add(200);
         tree.add(50);
@@ -25,5 +28,7 @@ public class Driver {
         System.out.println("Height : " + tree.height());
 
         System.out.println("Sum : " + tree.sum());
+*/
+        System.out.println("isBST : " + tree.isBST());
     }
 }
