@@ -1,5 +1,10 @@
 package com.deepakm.ds.tree.binary;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class BinaryTree {
     private TreeNode root;
 
@@ -7,7 +12,7 @@ public class BinaryTree {
         this.root = null;
     }
 
-    public BinaryTree(int data){
+    public BinaryTree(int data) {
         this.root = new TreeNode(data);
         this.root.left = null;
         this.root.right = null;
@@ -118,9 +123,33 @@ public class BinaryTree {
 
     private boolean isBST(TreeNode node, int minValue, int maxValue) {
         if (node == null) return true;
-        if( node.data <= minValue || node.data > maxValue) return false;
+        if (node.data <= minValue || node.data > maxValue) return false;
 
         int data = node.data;
         return isBST(node.left, minValue, data) && isBST(node.right, data, maxValue);
+    }
+
+    public void levelOrder() {
+        List<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        levelOrder(q);
+    }
+
+    private void levelOrder(List<TreeNode> q) {
+        if( q == null) return;
+        if( q.size() == 0 ) return;
+
+        List<TreeNode> tempQ = new LinkedList<>();
+
+        for (TreeNode node : q) {
+            if (node != null) {
+                System.out.print(node.data + ", ");
+                if (node.left != null)
+                    tempQ.add(node.left);
+                if (node.right != null)
+                    tempQ.add(node.right);
+            }
+        }
+        levelOrder(tempQ);
     }
 }
