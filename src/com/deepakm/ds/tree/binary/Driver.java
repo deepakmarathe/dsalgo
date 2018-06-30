@@ -23,5 +23,7 @@ public class Driver {
         System.out.println("size : " + tree.size());
 
         System.out.println("Height : " + tree.height());
+
+        System.out.println("Sum : " + tree.sum());
     }
 }

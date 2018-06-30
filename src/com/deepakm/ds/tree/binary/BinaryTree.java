@@ -90,4 +90,14 @@ public class BinaryTree {
         if( node == null ) return 0;
         return 1 + Math.max(height(node.left), height(node.right));
     }
+
+    public long sum(){
+        return sum(root);
+    }
+
+    private long sum(TreeNode node) {
+        if( node == null ) return 0;
+        long sum = node.data + sum(node.left) + sum(node.right);
+        return sum;
+    }
 }
