@@ -1,4 +1,4 @@
-package com.deepakm.dsalgo.ds.trie;
+package com.deepakm.ds.trie;
 
 import java.util.HashMap;
 import java.util.Map;
