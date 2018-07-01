@@ -215,4 +215,24 @@ public class BinaryTree {
         System.out.println();
         levelOrder(tempQ);
     }
+
+    public void levelOrderReverse(){
+        levelOrderReverse(root);
+    }
+
+    private void levelOrderReverse(TreeNode node) {
+        if( node == null ) return ;
+        Stack<TreeNode> stack = new Stack<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()){
+            node = queue.poll();
+            if( node.right != null ) queue.offer(node.right);
+            if( node.left != null ) queue.offer(node.left);
+            stack.push(node);
+        }
+        while(!stack.isEmpty()){
+            System.out.println(stack.pop().data);
+        }
+    }
 }
