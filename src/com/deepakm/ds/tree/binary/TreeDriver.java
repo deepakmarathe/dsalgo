@@ -48,5 +48,10 @@ public class TreeDriver {
 
         System.out.println("Spiral Traversal : ");
         tree.spiralTraversal();
+
+        TreeNode node1 = tree.getRoot().left.right;
+        TreeNode node2 = tree.getRoot().left;
+        TreeNode lca = tree.lowestCommonAncestor(node1, node2);
+        System.out.println("Lowest Common Ancestor : " + lca.data);
     }
 }

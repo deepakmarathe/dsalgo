@@ -216,50 +216,61 @@ public class BinaryTree {
         levelOrder(tempQ);
     }
 
-    public void levelOrderReverse(){
+    public void levelOrderReverse() {
         levelOrderReverse(root);
     }
 
     private void levelOrderReverse(TreeNode node) {
-        if( node == null ) return ;
+        if (node == null) return;
         Stack<TreeNode> stack = new Stack<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(node);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             node = queue.poll();
-            if( node.right != null ) queue.offer(node.right);
-            if( node.left != null ) queue.offer(node.left);
+            if (node.right != null) queue.offer(node.right);
+            if (node.left != null) queue.offer(node.left);
             stack.push(node);
         }
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             System.out.println(stack.pop().data);
         }
     }
 
-    public void spiralTraversal(){
+    public void spiralTraversal() {
         spiralTraversal(root);
     }
 
     private void spiralTraversal(TreeNode node) {
-        if( node == null ) return ;
+        if (node == null) return;
         Stack<TreeNode> s1 = new Stack<>();
         Stack<TreeNode> s2 = new Stack<>();
         s1.push(node);
 
-        while(!s1.isEmpty() || !s2.isEmpty())
-        {
-            while(!s1.isEmpty()){
+        while (!s1.isEmpty() || !s2.isEmpty()) {
+            while (!s1.isEmpty()) {
                 node = s1.pop();
                 System.out.println(node.data);
-                if( node.left != null ) s2.push(node.left);
-                if( node.right != null ) s2.push(node.right);
+                if (node.left != null) s2.push(node.left);
+                if (node.right != null) s2.push(node.right);
             }
-            while(!s2.isEmpty()){
+            while (!s2.isEmpty()) {
                 node = s2.pop();
                 System.out.println(node.data);
-                if( node.right != null ) s1.push(node.right);
-                if( node.left != null ) s1.push(node.left);
+                if (node.right != null) s1.push(node.right);
+                if (node.left != null) s1.push(node.left);
             }
         }
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode node1, TreeNode node2) {
+        return lowestCommonAncestor(root, node1, node2);
+    }
+
+    private TreeNode lowestCommonAncestor(TreeNode node, TreeNode node1, TreeNode node2) {
+        if (node.data > Math.max(node1.data, node2.data)) {
+            return lowestCommonAncestor(node.left, node1, node2);
+        } else if (node.data < Math.min(node1.data, node2.data)) {
+            return lowestCommonAncestor(node.right, node1, node2);
+        } else return node;
     }
 }
