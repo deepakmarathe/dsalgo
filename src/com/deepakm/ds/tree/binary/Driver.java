@@ -32,7 +32,9 @@ public class Driver {
 
         System.out.println("isBST : " + tree.isBST());
 
-
         tree.levelOrder();
+
+        System.out.println("postorderIterative : ");
+        tree.postOrderIterative();
     }
 }

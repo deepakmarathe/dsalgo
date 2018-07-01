@@ -1,9 +1,6 @@
 package com.deepakm.ds.tree.binary;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class BinaryTree {
     private TreeNode root;
@@ -79,6 +76,31 @@ public class BinaryTree {
         System.out.println(node.data);
     }
 
+    public void postOrderIterative(){
+        postOrderIterative(root);
+    }
+
+    private void postOrderIterative(TreeNode node) {
+        if( node == null ) return;
+        Stack<TreeNode> s1 = new Stack<>();
+        Stack<TreeNode> s2 = new Stack<>();
+        s1.push(node);
+        while(!s1.empty()){
+            TreeNode n = s1.pop();
+            s2.push(n);
+            if( n.left != null ){
+                s1.push(n.left);
+            }
+            if( n.right != null){
+                s1.push(n.right);
+            }
+        }
+        while(!s2.isEmpty()){
+            TreeNode n = s2.pop();
+            System.out.println(n.data);
+        }
+    }
+
     public boolean containsNode(int value) {
         return containsNodeRecursive(root, value);
     }
@@ -150,6 +172,7 @@ public class BinaryTree {
                     tempQ.add(node.right);
             }
         }
+        System.out.println();
         levelOrder(tempQ);
     }
 }
