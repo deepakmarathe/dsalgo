@@ -51,6 +51,26 @@ public class BinaryTree {
         preOrderRecursive(node.right);
     }
 
+    public void preOrderIterative() {
+        // V, L, R
+        preOrderIterative(root);
+    }
+
+    private void preOrderIterative(TreeNode node) {
+        if (node == null) return;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(node);
+        while (!stack.isEmpty()) {
+            TreeNode n = stack.pop();
+            System.out.println(n.data + ", ");
+            if (n.right != null)
+                stack.push(n.right);
+            if (n.left != null)
+                stack.push(n.left);
+        }
+
+    }
+
     public void inOrder() {
         // L, V, R
         inOrderRecursive(root);
@@ -76,26 +96,26 @@ public class BinaryTree {
         System.out.println(node.data);
     }
 
-    public void postOrderIterative(){
+    public void postOrderIterative() {
         postOrderIterative(root);
     }
 
     private void postOrderIterative(TreeNode node) {
-        if( node == null ) return;
+        if (node == null) return;
         Stack<TreeNode> s1 = new Stack<>();
         Stack<TreeNode> s2 = new Stack<>();
         s1.push(node);
-        while(!s1.empty()){
+        while (!s1.empty()) {
             TreeNode n = s1.pop();
             s2.push(n);
-            if( n.left != null ){
+            if (n.left != null) {
                 s1.push(n.left);
             }
-            if( n.right != null){
+            if (n.right != null) {
                 s1.push(n.right);
             }
         }
-        while(!s2.isEmpty()){
+        while (!s2.isEmpty()) {
             TreeNode n = s2.pop();
             System.out.println(n.data);
         }
@@ -158,8 +178,8 @@ public class BinaryTree {
     }
 
     private void levelOrder(List<TreeNode> q) {
-        if( q == null) return;
-        if( q.size() == 0 ) return;
+        if (q == null) return;
+        if (q.size() == 0) return;
 
         List<TreeNode> tempQ = new LinkedList<>();
 

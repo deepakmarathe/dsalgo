@@ -36,5 +36,8 @@ public class Driver {
 
         System.out.println("postorderIterative : ");
         tree.postOrderIterative();
+
+        System.out.println("preOrderIterative : ");
+        tree.preOrderIterative();
     }
 }
