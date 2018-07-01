@@ -1,6 +1,6 @@
 package com.deepakm.ds.tree.binary;
 
-public class Driver {
+public class TreeDriver {
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree(100);
         tree.getRoot().left = new TreeNode(10);
@@ -45,5 +45,8 @@ public class Driver {
 
         System.out.println("Level order in reverse : ");
         tree.levelOrderReverse();
+
+        System.out.println("Spiral Traversal : ");
+        tree.spiralTraversal();
     }
 }
