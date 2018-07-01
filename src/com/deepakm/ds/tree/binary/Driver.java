@@ -39,5 +39,8 @@ public class Driver {
 
         System.out.println("preOrderIterative : ");
         tree.preOrderIterative();
+
+        System.out.println("inOrderIterative : ");
+        tree.inOrderIterative();
     }
 }

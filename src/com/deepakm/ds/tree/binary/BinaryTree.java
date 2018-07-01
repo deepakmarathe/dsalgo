@@ -83,6 +83,26 @@ public class BinaryTree {
         inOrderRecursive(node.right);
     }
 
+    public void inOrderIterative() {
+        inOrderIterative(root);
+    }
+
+    private void inOrderIterative(TreeNode node) {
+        if (root == null) return;
+        Stack<TreeNode> stack = new Stack<>();
+        while (true) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else {
+                if (stack.empty()) break;
+                node = stack.pop();
+                System.out.println(node.data);
+                node = node.right;
+            }
+        }
+    }
+
     public void postOrder() {
         // L, R, V
         postOrderRecursive(root);
