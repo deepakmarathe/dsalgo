@@ -1,6 +1,6 @@
 package com.deepakm.effectivejava;
 
-public final class PhoneNumber implements Cloneable {
+public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
     private final short areaCode;
     private final short prefix;
     private final short lineNumber;
@@ -49,6 +49,20 @@ public final class PhoneNumber implements Cloneable {
     @Override
     public String toString(){
         return areaCode + ", " + prefix + ", " + lineNumber;
+    }
+
+    @Override
+    public int compareTo(PhoneNumber o) {
+        // Compare area codes.
+        int areaCodeDiff = areaCode - o.areaCode;
+        if( areaCodeDiff != 0) return areaCodeDiff;
+
+        // Area codes are equal, compare prefixes.
+        int prefixDiff = prefix - o.prefix;
+        if( prefixDiff != 0) return prefixDiff;
+
+        // Area codes and prefixes are equal, compare line numbers.
+        return lineNumber - o.lineNumber;
     }
 
     public static void main(String[] args) {
