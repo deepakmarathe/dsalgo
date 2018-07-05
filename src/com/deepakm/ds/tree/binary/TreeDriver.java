@@ -51,7 +51,10 @@ public class TreeDriver {
 
         TreeNode node1 = tree.getRoot().left.right;
         TreeNode node2 = tree.getRoot().left;
-        TreeNode lca = tree.lowestCommonAncestor(node1, node2);
+        TreeNode lca = tree.lowestCommonAncestorBST(node1, node2);
         System.out.println("Lowest Common Ancestor : " + lca.data);
+
+        lca = tree.lowestCommonAncestorBT(node1, node2);
+        System.out.println("Lowest common ancestor : " + lca.data);
     }
 }
